@@ -1,0 +1,28 @@
+const express = require('express');
+const app = express();
+
+app.get('/', (req, res) => {
+    res.send('ok!');
+});
+
+app.listen(3000,() => {
+    console.log('servidor em execução...');
+});
+
+app.all('/pessoa',(req, res) => {
+    res.send('pessoa ok!');
+});
+
+app.post('/produtos?', (req, res) => {
+    res.send('produtos(s) ok!');
+});
+
+app.get('/:teste', (req,res) => {
+    res.send('valor: ${req.params.teste}')
+});
+
+app.get('/arquivo', (req, res) => {
+    res.download('arquivo.txt');
+});
+
+app.use(esprexx.sthatic('publico'));
